@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parul Birthday — First Page</title>
+
+<!--
+  EDITABLE TEXT:
+  You only need to change the text inside the elements marked
+  .editable below. The background image is NOT changed.
+-->
+
+<style>
+  :root{
+    --yellow:#FFFADA;
+    --blue:#9CEDF9;
+    --brown:#5A3828;
+    --ink:#31515A;
+  }
+
+  *{box-sizing:border-box}
+
+  html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:var(--yellow);
+  }
+
+  body{
+    font-family:Lora,Georgia,"Times New Roman",serif;
+  }
+
+  /* =========================
+     FULL BACKGROUND IMAGE
+     ========================= */
+  .page{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background:var(--yellow);
+  }
+
+  .background{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    z-index:0;
+  }
+
+  /*
+    Very light overlay. It does NOT cover the artwork;
+    it only helps the HTML text sit naturally on top.
+  */
+  .warm-overlay{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:linear-gradient(
+      90deg,
+      rgba(255,250,218,0.00) 0%,
+      rgba(255,250,218,0.02) 52%,
+      rgba(255,250,218,0.10) 100%
+    );
+  }
+
+  /* =========================
+     FALLING BLUE BLOSSOMS
+     ========================= */
+  .petals{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:2;
+    pointer-events:none;
+  }
+
+  .petal{
+    position:absolute;
+    top:-30px;
+    left:var(--x);
+    width:var(--size);
+    height:calc(var(--size) * .58);
+    background:#8FD9F0;
+    border-radius:80% 20% 75% 25%;
+    opacity:var(--opacity);
+    filter:drop-shadow(0 2px 2px rgba(49,81,90,.08));
+    animation:fall var(--duration) linear var(--delay) infinite;
+  }
+
+  @keyframes fall{
+    0%{
+      transform:translate3d(0,-40px,0) rotate(0deg);
+      opacity:0;
+    }
+    10%{opacity:var(--opacity)}
+    45%{
+      transform:translate3d(var(--drift1),45vh,0) rotate(160deg);
+    }
+    100%{
+      transform:translate3d(var(--drift2),112vh,0) rotate(350deg);
+      opacity:.03;
+    }
+  }
+
+  /* =========================
+     MUSIC
+     ========================= */
+  .music-button{
+    position:absolute;
+    z-index:6;
+    top:3.2%;
+    right:2.5%;
+    width:52px;
+    height:52px;
+    border:0;
+    border-radius:50%;
+    background:rgba(255,250,218,.82);
+    color:var(--ink);
+    font-size:21px;
+    cursor:pointer;
+    box-shadow:0 7px 25px rgba(49,81,90,.14);
+    backdrop-filter:blur(8px);
+  }
+
+  /* =========================
+     EDITABLE TEXT AREA
+     ========================= */
+  .text-area{
+    position:absolute;
+    z-index:5;
+    right:4.5%;
+    top:8%;
+    width:min(47%, 670px);
+    max-height:84vh;
+    padding:28px 34px 30px;
+    text-align:center;
+    color:var(--brown);
+    background:rgba(255,250,218,.76);
+    border:1px solid rgba(255,255,255,.58);
+    border-radius:30px;
+    box-shadow:0 14px 38px rgba(90,56,40,.14);
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+  }
+
+  .page-header{
+    margin:0 0 20px;
+    text-align:center;
+  }
+
+  .page-header .title{
+    margin:0;
+    font-family:Lora,Georgia,"Times New Roman",serif;
+    font-size:clamp(34px,4vw,58px);
+    line-height:1.02;
+    letter-spacing:1px;
+    font-weight:800;
+  }
+
+  .page-header .edition{
+    margin-top:8px;
+    font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;
+    font-size:clamp(15px,1.5vw,22px);
+    letter-spacing:3px;
+  }
+
+  .header-rule{
+    width:76px;
+    height:3px;
+    margin:14px auto 0;
+    border-radius:999px;
+    background:var(--blue);
+  }
+
+  .message{
+    margin:0;
+    font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;
+    font-size:clamp(15px,1.28vw,20px);
+    line-height:1.62;
+    letter-spacing:.05px;
+    color:var(--brown);
+    text-shadow:0 1px 0 rgba(255,250,218,.55);
+    outline:none;
+  }
+
+  .message:focus{
+    text-shadow:0 1px 0 rgba(255,250,218,.35);
+  }
+
+
+  .button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin-top:38px;
+    min-width:min(390px,80%);
+    height:62px;
+    padding:0 34px;
+    border:0;
+    border-radius:999px;
+    background:rgba(156,237,249,.90);
+    color:#24576A;
+    font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;
+    font-size:clamp(14px,1.35vw,19px);
+    cursor:pointer;
+    box-shadow:0 10px 28px rgba(49,81,90,.13);
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+
+  .button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 32px rgba(49,81,90,.18);
+  }
+
+  .arrow{
+    font-family:Arial,sans-serif;
+    font-size:25px;
+  }
+
+  .scroll{
+    margin-top:30px;
+    font:25px Arial,sans-serif;
+    color:#43899A;
+    animation:bob 2s ease-in-out infinite;
+  }
+
+  @keyframes bob{
+    0%,100%{transform:translateY(0);opacity:.55}
+    50%{transform:translateY(7px);opacity:1}
+  }
+
+  /* Small editable doodles */
+  .doodle{
+    position:absolute;
+    z-index:5;
+    color:var(--brown);
+    font-family:cursive;
+    font-size:35px;
+  }
+
+  .heart{right:7%;top:20%}
+
+  /* =========================
+     RESPONSIVE
+     ========================= */
+  @media(max-width:800px){
+    .background{object-position:57% center}
+
+    .text-area{
+      right:3%;
+      top:7%;
+      width:56%;
+      padding:24px 25px 25px;
+    }
+
+    .message{font-size:clamp(14px,1.9vw,18px);line-height:1.55}
+    .button{min-width:85%;height:54px}
+  }
+
+  @media(max-width:560px){
+    .text-area{
+      top:5%;
+      right:3%;
+      width:64%;
+      padding:20px 18px 21px;
+      border-radius:22px;
+    }
+
+    .page-header .title{font-size:32px}
+    .page-header .edition{font-size:13px;letter-spacing:2px}
+    .message{font-size:12px;line-height:1.48}
+    .button{font-size:12px;margin-top:22px;height:48px;padding:0 18px}
+    .music-button{width:44px;height:44px}
+  }
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%92%99%3C/text%3E%3C/svg%3E"><meta name="theme-color" content="#9CEDF9"><link rel="preload" href="fonts/f-2fed3514.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/f-4da61745.woff2" as="font" type="font/woff2" crossorigin><link rel="prefetch" href="page2.html"><link rel="prefetch" href="img/page2-96ff1bdf.webp" as="image"><style id="cozy-theme">html{background-color:#c4bca0;background-image:url(data:image/webp;base64,UklGRiQBAABXRUJQVlA4IBgBAACwBgCdASooABsAPtlYpkyoJSOiNVQMAQAbCWwAgjd4DjABDQSrNQ6Ye+3P1gfFm1WI+Vm46bpbd4e+ZENgAAD92i+fii7cBowRx3UxyD1mu/zw/MdET0A7fncLKGRutCjoEGwNKghkqyixm+RJ+IgIo46nMZHgErrx/DR4aQ0myY50h8QYxOp1u442embC1cD4QSTHIxV85yfV86Nx6C+sjiWsCG2mHbXZXoaXAOVQ9q8eMZu6mloeWkrfss9xyH4cpvCApsVVejmTVWdoM7RPshLut7ftYWT7uiTgQeADLwqX8lKLtxrFjzerwzS0i4wuC5U1MjNQ3qCqFKofjG2Dhx7D7/r3LFudq+pk4LGQ77xPUYIpYAAA);background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed}
+@font-face{font-family:"Patrick Hand";font-style:normal;font-weight:400;font-display:swap;size-adjust:108%;src:url(fonts/f-2fed3514.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/f-a8b5e205.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/f-4da61745.woff2) format("woff2")}
+
+/* ============ COZY THEME (shared by every page) ============ */
+:root{--cz-sky1:#c9f6fd;--cz-sky2:#93dff0;--cz-sky-edge:#66b8cf;--cz-sky-ink:#1c5266;
+--cz-rose1:#fffafb;--cz-rose2:#ffd9e5;--cz-rose-edge:#e9a9c0;--cz-rose-ink:#7a4259;
+--cz-sun1:#fff8cf;--cz-sun2:#ffe488;--cz-sun-edge:#e0bb4f;--cz-sun-ink:#5f4a1f}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+::selection{background:#ffd9e5;color:#4a3328}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:.3s ease both cz-fade-out}
+::view-transition-new(root){animation:.5s ease both cz-fade-in}
+@keyframes cz-fade-out{to{opacity:0}}
+@keyframes cz-fade-in{from{opacity:0}}
+@keyframes cz-rise{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes cz-pop{from{opacity:0;transform:translateY(18px) scale(.95)}}
+@keyframes cz-wiggle{0%,88%,100%{rotate:0deg}91%{rotate:-4deg}94%{rotate:3.5deg}97%{rotate:-2deg}}
+@keyframes cz-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@keyframes cz-float{0%{transform:translate3d(0,0,0) scale(.5);opacity:0}12%{opacity:var(--o)}50%{transform:translate3d(var(--dx),-48vh,0) scale(1)}88%{opacity:var(--o)}100%{transform:translate3d(calc(var(--dx) * -.6),-108vh,0) scale(.7);opacity:0}}
+h1,h2,.title{text-wrap:balance}
+p,.para,.message,.intro{text-wrap:pretty}
+
+/* ambient sparkles (decor only, never clickable) */
+.cz-sparkles{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:var(--cz-sz,1)}
+.cz-sparkles i{position:absolute;left:var(--x);bottom:-14px;width:var(--s);height:var(--s);border-radius:50%;
+background:radial-gradient(circle,rgba(var(--cz-sp,255,232,160),1) 0%,rgba(var(--cz-sp,255,232,160),.35) 55%,rgba(var(--cz-sp,255,232,160),0) 72%);
+box-shadow:0 0 10px 3px rgba(var(--cz-sp,255,232,160),.5);opacity:0;animation:cz-float var(--d) linear var(--dl) infinite;will-change:transform,opacity}
+
+/* scrollbars */
+*{scrollbar-width:thin;scrollbar-color:rgba(120,90,70,.35) transparent}
+*::-webkit-scrollbar{width:8px;height:8px}*::-webkit-scrollbar-thumb{background:rgba(120,90,70,.32);border-radius:99px}
+
+@media (prefers-reduced-motion:reduce){
+ .cz-sparkles{display:none}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+.text-area{background:linear-gradient(180deg,rgba(255,253,242,.93),rgba(255,247,225,.87));border:1px solid rgba(255,255,255,.92);border-radius:28px;box-shadow:0 22px 50px rgba(72,52,38,.20),0 0 0 6px rgba(255,255,255,.20),inset 0 1px 0 #fff;-webkit-backdrop-filter:blur(12px) saturate(1.15);backdrop-filter:blur(12px) saturate(1.15)}
+.text-area::before{content:"";position:absolute;top:-13px;left:50%;width:112px;height:28px;transform:translateX(-50%) rotate(-2deg);border-radius:3px;pointer-events:none;z-index:3;background:repeating-linear-gradient(135deg,rgba(156,237,249,.82) 0 10px,rgba(255,250,218,.85) 10px 20px,rgba(248,220,229,.85) 20px 30px);box-shadow:0 2px 6px rgba(60,40,30,.16)}
+.button{background:linear-gradient(180deg,#c9f6fd 0%,#93dff0 100%);color:#1c5266;border:1px solid rgba(255,255,255,.88);box-shadow:0 5px 0 #66b8cf,0 12px 22px rgba(36,90,110,.22),inset 0 1px 0 rgba(255,255,255,.95);text-shadow:0 1px 0 rgba(255,255,255,.55);transition:transform .15s ease,box-shadow .15s ease,filter .15s ease}
+.button:hover{transform:translateY(-2px);filter:brightness(1.03);box-shadow:0 7px 0 #66b8cf,0 16px 26px rgba(36,90,110,.26),inset 0 1px 0 rgba(255,255,255,.95)}
+.button:active{transform:translateY(3px);filter:none;box-shadow:0 2px 0 #66b8cf,0 5px 10px rgba(36,90,110,.2),inset 0 1px 0 rgba(255,255,255,.95)}
+.button:focus-visible{outline:3px solid rgba(255,255,255,.95);outline-offset:3px;box-shadow:0 5px 0 #66b8cf,0 0 0 6px rgba(80,150,180,.55)}
+.text-area{animation:cz-rise .7s ease 0.00s both}
+
+.music-button{background:linear-gradient(180deg,#fffdf4,#ffeeb8);border:1px solid rgba(255,255,255,.9);box-shadow:0 4px 0 #e5cf8a,0 10px 20px rgba(90,56,40,.18),inset 0 1px 0 #fff;transition:transform .15s ease,box-shadow .15s ease}
+.music-button:hover{transform:translateY(-2px)}
+.music-button:active{transform:translateY(2px);box-shadow:0 1px 0 #e5cf8a,0 4px 8px rgba(90,56,40,.18)}
+.page-header .title{text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.heart{animation:cz-nudge 3s ease-in-out infinite}
+.button .arrow{display:inline-block;transition:transform .2s ease}
+.button:hover .arrow{transform:translateX(5px)}
+@media(max-width:560px){
+ .text-area{top:84px;right:12px;width:calc(100% - 24px);padding:22px 18px 20px;max-height:calc(100dvh - 98px);overflow-y:auto}
+ .text-area::before{display:none}
+ .page-header .title{font-size:36px}.page-header .edition{font-size:15px}
+ .message{font-size:16px;line-height:1.5}
+ .button{font-size:16px;margin-top:20px;height:52px;min-width:82%}
+ .scroll{margin-top:14px}
+ .heart{display:none}
+}
+@media(max-height:640px) and (min-width:561px){.text-area{overflow-y:auto}.text-area::before{display:none}}
+
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- THIS IS THE EMPTY PNG YOU GAVE ME -->
+  <img class="background" src="img/index-f717ab2d.webp" fetchpriority="high" decoding="async" alt="">
+
+  <div class="warm-overlay"></div>
+
+  <!-- Animated petals are separate from the static background. -->
+  <div class="petals" aria-hidden="true">
+    <i class="petal" style="--x:8%;--size:12px;--opacity:.75;--duration:11s;--delay:-3s;--drift1:55px;--drift2:90px"></i>
+    <i class="petal" style="--x:18%;--size:9px;--opacity:.62;--duration:14s;--delay:-8s;--drift1:-35px;--drift2:40px"></i>
+    <i class="petal" style="--x:29%;--size:13px;--opacity:.70;--duration:12s;--delay:-6s;--drift1:70px;--drift2:-20px"></i>
+    <i class="petal" style="--x:39%;--size:8px;--opacity:.55;--duration:16s;--delay:-11s;--drift1:-45px;--drift2:65px"></i>
+    <i class="petal" style="--x:50%;--size:11px;--opacity:.68;--duration:13s;--delay:-4s;--drift1:45px;--drift2:-40px"></i>
+    <i class="petal" style="--x:61%;--size:10px;--opacity:.62;--duration:15s;--delay:-9s;--drift1:-55px;--drift2:70px"></i>
+    <i class="petal" style="--x:72%;--size:12px;--opacity:.66;--duration:11s;--delay:-2s;--drift1:50px;--drift2:-15px"></i>
+    <i class="petal" style="--x:84%;--size:8px;--opacity:.56;--duration:17s;--delay:-13s;--drift1:-40px;--drift2:50px"></i>
+    <i class="petal" style="--x:93%;--size:10px;--opacity:.60;--duration:14s;--delay:-7s;--drift1:35px;--drift2:-55px"></i>
+  </div>
+
+  <!-- =========================
+       EDIT THESE TEXTS
+       ========================= -->
+  <div class="text-area message-mode">
+
+    <div class="page-header">
+      <div class="title editable" contenteditable="true">Parul da Birthday</div>
+      <div class="edition editable" contenteditable="true">2026 Edition</div>
+      <div class="header-rule"></div>
+    </div>
+
+    <div class="message editable" contenteditable="true">
+      ello Parul😁, FIRST OF ALL happy birthday bish hehe🥰🤗. WHO deserves a website present for their birthday if not you😤😤. bro i started this as a fun but it may have gotten LITTLE out of hand😭. anyways NOT gonna do too much bak bak on the first page😮‍💨. (but mera man kar raha yarrr😭, koi na AAGE BHUT SARE PAGE HAI udhar karunga hehe). So moving on, GET READY cz this gonna be a JOURNEY. enjoy!!🤞
+    </div>
+
+    <button class="button" id="openButton">
+      <span>Open Your Surprise</span>
+      <span class="arrow">→</span>
+    </button>
+
+    <div class="scroll">↓</div>
+  </div>
+
+  <div class="doodle heart">♡</div>
+
+  <button class="music-button" id="musicButton" aria-label="Play music">
+    ♫
+  </button>
+
+  <!-- Put your music at music/page1.mp3 -->
+  <audio id="music" loop preload="none">
+    <source src="music/page1.mp3" type="audio/mpeg">
+  </audio>
+
+</div>
+
+<script>
+  const music = document.getElementById("music");
+  const musicButton = document.getElementById("musicButton");
+
+  musicButton.addEventListener("click", async () => {
+    try {
+      if (music.paused) {
+        await music.play();
+        musicButton.textContent = "❚❚";
+      } else {
+        music.pause();
+        musicButton.textContent = "♫";
+      }
+    } catch (error) {
+      alert("Put your Page 1 music at music/page1.mp3");
+    }
+  });
+
+  document.getElementById("openButton").addEventListener("click", () => {
+    window.location.href = "page2.html";
+  });
+</script>
+</body>
+</html>

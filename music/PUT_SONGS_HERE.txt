@@ -1,0 +1,6 @@
+Put your songs in this folder:
+
+  page1.mp3  -> plays on the first page (music button, top right)
+  page4.mp3  -> plays on the album page (music button, top right)
+
+Keep these exact names (lowercase). MP3 works everywhere.

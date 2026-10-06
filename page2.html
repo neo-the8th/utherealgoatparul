@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parul Birthday — Page 2</title>
+<style>
+:root{--yellow:#FFFADA;--blue:#9CEDF9;--brown:#5A3828;--ink:#31515A}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;overflow-x:hidden;overflow-y:auto}
+body{font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;color:var(--brown);background:var(--yellow)}
+.page{position:relative;width:100%;min-height:100vh;overflow:visible}
+.bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0}
+.overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,250,218,0.00) 0%,rgba(255,250,218,0.02) 52%,rgba(255,250,218,0.10) 100%);z-index:1;pointer-events:none}
+.content{position:relative;z-index:2;width:min(760px,46vw);margin-left:auto;margin-right:6vw;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;padding:48px 0 110px}
+.header{text-align:center;margin-bottom:18px}
+.kicker{font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;font-size:14px;letter-spacing:4px;text-transform:uppercase;opacity:.85}
+h1{font-family:Lora,Georgia,"Times New Roman",serif;font-size:clamp(38px,4.2vw,62px);line-height:1.02;margin:6px 0 0;letter-spacing:-1px}
+.header-line{width:84px;height:4px;border-radius:99px;background:var(--blue);margin:13px auto 0}
+.card{width:min(720px,100%);overflow:visible;padding:22px 34px 20px;background:rgba(255,250,218,.76);border:1px solid rgba(255,255,255,.9);border-radius:28px;box-shadow:0 18px 50px rgba(90,56,40,.16);backdrop-filter:blur(6px);text-align:center}
+.intro{font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;font-size:15px;line-height:1.32}
+.intro p{margin:0}.intro strong{font-family:Lora,Georgia,"Times New Roman",serif;font-size:1.03em}
+.intro strong{font-family:Lora,Georgia,"Times New Roman",serif;font-size:1.03em}
+.question{margin:12px auto 0;width:min(590px,100%);padding:12px 18px 11px;border-radius:21px;background:rgba(232,247,234,.88);border:1px dashed rgba(74,158,173,.45)}
+.q-label{font-family:Lora,Georgia,"Times New Roman",serif;font-weight:700;font-size:21px}.q-sub{font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;font-size:14px;margin:4px 0 7px}
+.guess{width:185px;height:40px;border:2px solid rgba(74,158,173,.48);border-radius:999px;background:rgba(255,255,255,.78);text-align:center;font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;font-size:17px;color:var(--brown);outline:none}.guess:focus{border-color:#4A9EAD;box-shadow:0 0 0 4px rgba(156,237,249,.24)}
+.hint{font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;font-size:12px;opacity:.72;margin-top:5px}
+.actions{display:flex;flex-direction:column;align-items:center;gap:7px;margin-top:11px}
+.next{border:0;border-radius:999px;padding:10px 25px;background:var(--blue);color:#24576A;font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;font-size:14px;cursor:pointer;box-shadow:0 9px 22px rgba(49,81,90,.13);transition:transform .2s}.next:hover{transform:translateY(-2px)}
+.footer{font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;font-size:11px;opacity:.75}
+.creator{position:fixed;right:22px;bottom:20px;z-index:8;border:0;background:rgba(255,250,218,.96);color:var(--brown);padding:11px 17px;border-radius:999px;font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;font-size:14px;cursor:pointer;box-shadow:0 8px 22px rgba(90,56,40,.16);backdrop-filter:blur(6px)}
+.modal{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;background:rgba(49,81,90,.27);padding:20px}.modal.open{display:flex}
+.memo{position:relative;width:min(560px,92vw);height:min(82vh,680px);overflow:hidden;background:#fffdf0;padding:29px;border-radius:7px;box-shadow:0 24px 70px rgba(49,81,90,.28);transform:rotate(-1.2deg);border:1px solid rgba(90,56,40,.13);display:flex;flex-direction:column}
+.memo:before{content:"";position:absolute;left:50%;top:-12px;transform:translateX(-50%) rotate(2deg);width:105px;height:28px;background:rgba(156,237,249,.62)}
+.memo h2{font-family:Lora,Georgia,"Times New Roman",serif;margin:0 40px 15px 0;font-size:28px;flex:0 0 auto}.memo .note{font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;font-size:15.5px;line-height:1.52;white-space:normal;outline:none;overflow-y:auto;overflow-x:hidden;flex:1;min-height:0;padding-right:10px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}.memo .note:focus{outline:none}.memo .note::-webkit-scrollbar{width:7px}.memo .note::-webkit-scrollbar-thumb{background:rgba(90,56,40,.22);border-radius:99px}.close{position:absolute;right:14px;top:8px;border:0;background:transparent;font-size:26px;color:var(--brown);cursor:pointer}.memo .footer{margin-top:12px}
+@media(max-width:900px){html,body{overflow-x:hidden;overflow-y:auto}.page{min-height:100vh;overflow:visible}.bg{object-position:62% center}.content{width:min(760px,92vw);margin:0 auto;padding:28px 0 100px;min-height:100vh;justify-content:flex-start}.card{overflow:visible}.creator{right:12px;bottom:12px}.memo{width:min(560px,92vw);height:82vh}}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%92%99%3C/text%3E%3C/svg%3E"><meta name="theme-color" content="#9CEDF9"><link rel="preload" href="fonts/f-2fed3514.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/f-4da61745.woff2" as="font" type="font/woff2" crossorigin><link rel="prefetch" href="page3.html"><link rel="prefetch" href="img/page3-7e24c5af.webp" as="image"><style id="cozy-theme">html{background-color:#cfc0a8;background-image:url(data:image/webp;base64,UklGRhYBAABXRUJQVlA4IAoBAAAwBwCdASooABcAPt1epk+opKMiKrgMARAbiWIAnTK9hnhAmWUL4/+wjkDTlwwyZEOY6wJNmHOKMZrikK2tJlhUqsAA/sP9+RilqrlYUcc5raOpWwxjA2yB/FynZiqG1+K0UvVytpArwgmp2jklCjnobm4SRl6gtxUqkhJHA2HKQuQWxBXlYidL94MTEyRxiqUzvGxKArCKMrnzb1fA9aM32d94DMp26qjnpiwf8l1QYiX+dEW1M6YOt7exqVgaQ+cIuZlXJI73aRnaZylBhCWrJxzEAWHO58sB4V3CNkbG+VIfbyFYpSe6N8yo2QSF/pB/ug9F4jHEETHSsHXbG4cofLgejN3yyQJAAA==);background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed}
+@font-face{font-family:"Patrick Hand";font-style:normal;font-weight:400;font-display:swap;size-adjust:108%;src:url(fonts/f-2fed3514.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/f-a8b5e205.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/f-4da61745.woff2) format("woff2")}
+
+/* ============ COZY THEME (shared by every page) ============ */
+:root{--cz-sky1:#c9f6fd;--cz-sky2:#93dff0;--cz-sky-edge:#66b8cf;--cz-sky-ink:#1c5266;
+--cz-rose1:#fffafb;--cz-rose2:#ffd9e5;--cz-rose-edge:#e9a9c0;--cz-rose-ink:#7a4259;
+--cz-sun1:#fff8cf;--cz-sun2:#ffe488;--cz-sun-edge:#e0bb4f;--cz-sun-ink:#5f4a1f}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+::selection{background:#ffd9e5;color:#4a3328}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:.3s ease both cz-fade-out}
+::view-transition-new(root){animation:.5s ease both cz-fade-in}
+@keyframes cz-fade-out{to{opacity:0}}
+@keyframes cz-fade-in{from{opacity:0}}
+@keyframes cz-rise{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes cz-pop{from{opacity:0;transform:translateY(18px) scale(.95)}}
+@keyframes cz-wiggle{0%,88%,100%{rotate:0deg}91%{rotate:-4deg}94%{rotate:3.5deg}97%{rotate:-2deg}}
+@keyframes cz-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@keyframes cz-float{0%{transform:translate3d(0,0,0) scale(.5);opacity:0}12%{opacity:var(--o)}50%{transform:translate3d(var(--dx),-48vh,0) scale(1)}88%{opacity:var(--o)}100%{transform:translate3d(calc(var(--dx) * -.6),-108vh,0) scale(.7);opacity:0}}
+h1,h2,.title{text-wrap:balance}
+p,.para,.message,.intro{text-wrap:pretty}
+
+/* ambient sparkles (decor only, never clickable) */
+.cz-sparkles{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:var(--cz-sz,1)}
+.cz-sparkles i{position:absolute;left:var(--x);bottom:-14px;width:var(--s);height:var(--s);border-radius:50%;
+background:radial-gradient(circle,rgba(var(--cz-sp,255,232,160),1) 0%,rgba(var(--cz-sp,255,232,160),.35) 55%,rgba(var(--cz-sp,255,232,160),0) 72%);
+box-shadow:0 0 10px 3px rgba(var(--cz-sp,255,232,160),.5);opacity:0;animation:cz-float var(--d) linear var(--dl) infinite;will-change:transform,opacity}
+
+/* scrollbars */
+*{scrollbar-width:thin;scrollbar-color:rgba(120,90,70,.35) transparent}
+*::-webkit-scrollbar{width:8px;height:8px}*::-webkit-scrollbar-thumb{background:rgba(120,90,70,.32);border-radius:99px}
+
+@media (prefers-reduced-motion:reduce){
+ .cz-sparkles{display:none}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+:root{--cz-sp:255,244,205;--cz-sz:1}
+.card{background:linear-gradient(180deg,rgba(255,253,242,.93),rgba(255,247,225,.87));border:1px solid rgba(255,255,255,.92);border-radius:28px;box-shadow:0 22px 50px rgba(72,52,38,.20),0 0 0 6px rgba(255,255,255,.20),inset 0 1px 0 #fff;-webkit-backdrop-filter:blur(12px) saturate(1.15);backdrop-filter:blur(12px) saturate(1.15)}
+.card{position:relative}
+.card::before{content:"";position:absolute;top:-13px;left:50%;width:112px;height:28px;transform:translateX(-50%) rotate(-2deg);border-radius:3px;pointer-events:none;z-index:3;background:repeating-linear-gradient(135deg,rgba(156,237,249,.82) 0 10px,rgba(255,250,218,.85) 10px 20px,rgba(248,220,229,.85) 20px 30px);box-shadow:0 2px 6px rgba(60,40,30,.16)}
+.next{background:linear-gradient(180deg,#c9f6fd 0%,#93dff0 100%);color:#1c5266;border:1px solid rgba(255,255,255,.88);box-shadow:0 5px 0 #66b8cf,0 12px 22px rgba(36,90,110,.22),inset 0 1px 0 rgba(255,255,255,.95);text-shadow:0 1px 0 rgba(255,255,255,.55);transition:transform .15s ease,box-shadow .15s ease,filter .15s ease}
+.next:hover{transform:translateY(-2px);filter:brightness(1.03);box-shadow:0 7px 0 #66b8cf,0 16px 26px rgba(36,90,110,.26),inset 0 1px 0 rgba(255,255,255,.95)}
+.next:active{transform:translateY(3px);filter:none;box-shadow:0 2px 0 #66b8cf,0 5px 10px rgba(36,90,110,.2),inset 0 1px 0 rgba(255,255,255,.95)}
+.next:focus-visible{outline:3px solid rgba(255,255,255,.95);outline-offset:3px;box-shadow:0 5px 0 #66b8cf,0 0 0 6px rgba(80,150,180,.55)}
+.creator{background:linear-gradient(180deg,#fffafb 0%,#ffd9e5 100%);color:#7a4259;border:1px solid rgba(255,255,255,.88);box-shadow:0 5px 0 #e9a9c0,0 12px 22px rgba(120,60,85,.22),inset 0 1px 0 rgba(255,255,255,.95);text-shadow:0 1px 0 rgba(255,255,255,.55);transition:transform .15s ease,box-shadow .15s ease,filter .15s ease}
+.creator:hover{transform:translateY(-2px);filter:brightness(1.03);box-shadow:0 7px 0 #e9a9c0,0 16px 26px rgba(120,60,85,.26),inset 0 1px 0 rgba(255,255,255,.95)}
+.creator:active{transform:translateY(3px);filter:none;box-shadow:0 2px 0 #e9a9c0,0 5px 10px rgba(120,60,85,.2),inset 0 1px 0 rgba(255,255,255,.95)}
+.creator:focus-visible{outline:3px solid rgba(255,255,255,.95);outline-offset:3px;box-shadow:0 5px 0 #e9a9c0,0 0 0 6px rgba(80,150,180,.55)}
+.creator{animation:cz-wiggle 8s ease-in-out 4s infinite}
+.creator:hover{animation-play-state:paused}
+.memo{background:linear-gradient(180deg,#fffdf3 0%,#fff8dd 100%);border:1px solid #ecdca8;border-radius:10px 10px 22px 10px;box-shadow:0 28px 64px rgba(40,28,24,.38),0 0 0 6px rgba(255,255,255,.18)}
+.memo::before{content:"";position:absolute;left:0;right:0;top:0;width:auto;height:10px;transform:none;border-radius:10px 10px 0 0;pointer-events:none;z-index:1;background:repeating-linear-gradient(135deg,#9CEDF9 0 12px,#FFFADA 12px 24px,#f8dce5 24px 36px)}
+.modal.open .memo{animation:cz-pop .3s ease both}
+.modal{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.header{animation:cz-rise .7s ease 0.00s both}
+.card{animation:cz-rise .7s ease 0.08s both}
+
+.kicker,h1{text-shadow:0 2px 0 rgba(255,255,255,.75),0 0 22px rgba(255,250,218,.95)}
+h1{font-size:clamp(32px,3.3vw,50px)}
+.question{background:linear-gradient(180deg,rgba(238,251,240,.94),rgba(222,244,229,.88));border:2px dashed rgba(74,158,173,.42)}
+.guess{box-shadow:inset 0 2px 4px rgba(90,56,40,.09);transition:border-color .2s,box-shadow .2s}
+.intro{font-size:16px;line-height:1.42}
+.memo{overflow:hidden;height:auto;max-height:min(82vh,680px)}
+@media(max-width:900px){.intro{font-size:16px}.next{font-size:15px;padding:11px 22px}.footer{font-size:12px}}
+
+</style>
+</head>
+<body>
+<div class="page">
+  <img class="bg" src="img/page2-96ff1bdf.webp" fetchpriority="high" decoding="async" alt="Dreamy amusement park background">
+  <div class="overlay"></div>
+
+  <main class="content">
+    <header class="header">
+      <div class="kicker">THE SURPRISE</div>
+      <h1>Okay... what's inside? 👀</h1>
+      <div class="header-line"></div>
+    </header>
+
+    <section class="card">
+      <div class="intro" contenteditable="true">You made it to the 2nd page wow😭. Thats a big achievement for a noob😭.(Marr hi khaunga ab mai, ab nahi milega party mujhee jaaaaaaa😭) <strong>Okay lets stop this drama, now serious pura wala😮‍💨.</strong> You probably thought this was just a website. <strong>HAHA. NO😁.</strong> (but yes, it is also a website, i mean obviously🤗). This is actually a little collection of things I've put together for you. There are <strong>___ parts</strong> to this whole thing. <strong>Now here you have to guess how many parts there is in total. Now write that down. Right now hehe.</strong> And no, I'm not telling you what they are yet. 😌 You'll figure them out as we go.</div>
+
+      <section class="question">
+        <div class="q-label">❓ Question of the page</div>
+        <div class="q-sub">How many parts do you think this gift has?</div>
+        <input class="guess" id="guess" type="number" min="0" max="99" placeholder="Your guess" aria-label="Your guess">
+        <div class="hint">Write it down somewhere. I'm not giving you the answer. 😌</div>
+      </section>
+
+      <div class="actions">
+        <button class="next" onclick="window.location.href='page3.html'">Okay okay, let's continue →</button>
+        <div class="footer">P.S. no cheating. 😭 &nbsp; Also pls read the Creator's Note 😭</div>
+      </div>
+    </section>
+  </main>
+
+  <button class="creator" id="creatorBtn">✎ Creator's Note</button>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="memo">
+      <button class="close" id="closeBtn" aria-label="Close">×</button>
+      <h2>✎ Creator's Note</h2>
+      <div class="note" contenteditable="true">Yay you are also reading this Thankooo🤗. Now lets share my side of things. So right now time is 12:10PM, 1st October. <strong>BROOOO</strong> maine ye na website wala to bahut pehle soch ke rakha tha but now i started this 😭😭 This shit is muskil thora. <strong>But a baddie never loose😭.</strong> Aur ye bc ChatGPT ko mai bolta kuch ye karta kuch hai bkl. khair. Majja aarha mujhe banane me to, itne sare ideas aa rahe na mujhe ki lagta hai 2027 ke birthday tak banega.😃</div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+ const modal=document.getElementById('modal');
+ const open=()=>{modal.classList.add('open');modal.setAttribute('aria-hidden','false')};
+ const close=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true')};
+ document.getElementById('creatorBtn').addEventListener('click',open);
+ document.getElementById('closeBtn').addEventListener('click',close);
+ modal.addEventListener('click',e=>{if(e.target===modal)close()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+})();
+</script>
+<div class="cz-sparkles" aria-hidden="true"><i style="--x:63.7%;--s:5.4px;--d:26.2s;--dl:-8.6s;--dx:46px;--o:0.55"></i><i style="--x:86.1%;--s:3.7px;--d:18.7s;--dl:-12.0s;--dx:23px;--o:0.67"></i><i style="--x:45.0%;--s:6.2px;--d:25.5s;--dl:-1.5s;--dx:67px;--o:0.40"></i><i style="--x:95.0%;--s:3.7px;--d:23.7s;--dl:-18.8s;--dx:-65px;--o:0.57"></i><i style="--x:86.3%;--s:3.6px;--d:21.8s;--dl:-15.5s;--dx:-58px;--o:0.64"></i><i style="--x:24.8%;--s:4.6px;--d:25.6s;--dl:-5.7s;--dx:-16px;--o:0.81"></i><i style="--x:35.3%;--s:5.5px;--d:25.0s;--dl:-6.2s;--dx:-43px;--o:0.54"></i><i style="--x:57.8%;--s:4.0px;--d:19.8s;--dl:-0.4s;--dx:69px;--o:0.52"></i><i style="--x:77.0%;--s:7.4px;--d:20.3s;--dl:-5.3s;--dx:45px;--o:0.43"></i><i style="--x:61.6%;--s:3.4px;--d:15.3s;--dl:-3.6s;--dx:-20px;--o:0.84"></i><i style="--x:91.2%;--s:7.2px;--d:18.9s;--dl:-17.4s;--dx:-70px;--o:0.41"></i><i style="--x:13.9%;--s:7.1px;--d:17.2s;--dl:-3.2s;--dx:-62px;--o:0.52"></i><i style="--x:4.2%;--s:6.5px;--d:24.8s;--dl:-20.2s;--dx:22px;--o:0.72"></i><i style="--x:93.5%;--s:4.4px;--d:23.5s;--dl:-5.4s;--dx:-23px;--o:0.45"></i></div>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parul da Birthday — An Album Ticket</title>
+<style>
+:root{
+  --ink:#273b55;--blue:#7898bd;--deep:#365779;--cream:#fff8e9;--yellow:#f6e7a9;
+  --paper:rgba(255,251,239,.94);--pink:#f5d8dc;--line:rgba(54,87,121,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;background:linear-gradient(rgba(22,36,60,.30),rgba(22,36,60,.12) 55%,rgba(22,36,60,.30)),url("img/page4-f8ffb1c3.webp") center center / cover fixed no-repeat;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rgba(255,248,233,.06);z-index:-1}
+button{font:inherit;cursor:pointer}
+.shell{max-width:1180px;width:calc(100% - 20px);margin:0 auto;padding:14px 0 96px}
+.topline{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#547391;font-size:.92rem}
+.brand{letter-spacing:.04em;color:#dce9f5;text-shadow:0 1px 5px rgba(24,43,65,.72),0 0 8px rgba(24,43,65,.45)}
+.note-btn{border:1px solid var(--line);background:#fffaf0;border-radius:999px;padding:8px 13px;color:var(--deep)}
+.hero{margin:22px 0 0 auto;max-width:790px;text-align:right}
+.kicker{display:inline-block;border:1px dashed rgba(220,233,245,.8);background:rgba(44,70,98,.58);color:#e4eef7;border-radius:999px;padding:7px 13px;font-size:.86rem;letter-spacing:.06em;text-shadow:0 1px 3px rgba(15,28,44,.55)}
+h1{font-family:Lora,Georgia,"Times New Roman",serif;font-weight:700;font-size:clamp(2.2rem,6vw,4.2rem);line-height:1.04;margin:15px 0 17px;color:#dce9f5;text-shadow:0 2px 7px rgba(20,38,58,.85),0 0 12px rgba(20,38,58,.45)}
+.intro-card{color:#20384e;max-width:620px;width:min(100%,620px);margin:0 0 20px auto;padding:15px 19px;border-radius:18px;background:rgba(255,251,239,.8);border:1px solid rgba(120,152,189,.3);box-shadow:0 7px 22px rgba(60,88,120,.08);font-size:clamp(.94rem,2vw,1.04rem);line-height:1.65;text-align:left}
+.ticket-zone{display:flex;width:100%;justify-content:center;align-items:center;margin:20px auto 10px}
+.ticket{position:relative;display:block;width:min(100%,360px);padding:0;border:0;background:transparent;transform:none;transition:transform .2s;margin-inline:auto}
+.ticket:hover{transform:translateY(-3px)}
+.ticket:focus-visible{outline:3px solid #365779;outline-offset:7px;border-radius:20px}
+.ticket-face{position:relative;overflow:hidden;border:2px solid #6f8fb4;border-radius:17px;background:linear-gradient(120deg,#fff9e7,#f5e6b3);box-shadow:0 9px 0 #d0dce8,0 14px 22px rgba(45,70,100,.17);padding:17px 18px 16px;text-align:left}
+.ticket-face:before,.ticket-face:after{content:"";position:absolute;width:26px;height:26px;border-radius:50%;background:#e8eff7;top:calc(50% - 13px);border:1px solid #6f8fb4}
+.ticket-face:before{left:-15px}.ticket-face:after{right:-15px}
+.ticket-top{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px dashed #7e9aba;padding-bottom:12px;font-size:.82rem;letter-spacing:.09em}
+.ticket-title{font-family:Lora,Georgia,"Times New Roman",serif;font-size:clamp(1.5rem,4vw,1.9rem);font-weight:bold;margin:13px 0 6px;color:#173b5b}
+.ticket-sub{font-size:.95rem;color:#516f90}
+.ticket-action{display:flex;align-items:center;justify-content:space-between;margin-top:15px;background:#6e8fb6;color:white;border-radius:12px;padding:10px 13px;font-size:1rem}
+.ticket-stamp{position:absolute;right:18px;top:48px;border:2px solid #d4a94c;color:#9a7834;border-radius:50%;width:49px;height:49px;display:grid;place-items:center;transform:rotate(12deg);font-size:.65rem;text-align:center}
+.hint{font-size:.88rem;color:#617e9e;text-align:center;margin:17px 0 0}
+.viewer{display:none;max-width:880px;margin:10px auto 0;scroll-margin-top:14px}
+.viewer.active{display:block;animation:arrive .35s ease-out}
+@keyframes arrive{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes photoIn{from{opacity:0;transform:translateY(6px) scale(.985)}to{opacity:1;transform:none}}
+
+/* --- stop heading: soft dusk-glass card so text is readable over the scene --- */
+.station-head{display:flex;justify-content:space-between;gap:12px;align-items:center;max-width:620px;margin:0 auto 14px;padding:10px 16px;border-radius:18px;color:#eef4fa;background:rgba(30,50,80,.58);border:1px solid rgba(220,233,245,.28);box-shadow:0 8px 24px rgba(12,22,38,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.station-label{font-size:.74rem;letter-spacing:.12em;color:#b9d0e8}
+h2{font-family:Lora,Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,4vw,2.5rem);margin:5px 0;color:#173b5b}
+.station-head h2{font-size:clamp(1.35rem,3.4vw,1.8rem);margin:2px 0 3px;color:#fff;text-shadow:0 1px 6px rgba(10,20,36,.45)}
+.station-desc{margin:0;font-size:.88rem;color:#dbe8f5}
+.progress{font-size:.82rem;white-space:nowrap;border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.16);color:#f1f6fb;border:1px solid rgba(220,233,245,.35)}
+
+/* --- the photo itself: no box, just the artwork floating on the scene --- */
+.memory-card{display:flex;justify-content:center;align-items:center;background:none;border:0;border-radius:0;padding:0;box-shadow:none}
+.memory-img{display:block;width:auto;height:auto;max-width:100%;max-height:calc(100vh - 250px);min-height:0;object-fit:contain;border-radius:20px;background:transparent;box-shadow:0 16px 40px rgba(10,20,36,.45),0 0 0 1px rgba(255,255,255,.35)}
+.memory-img.pop{animation:photoIn .35s ease-out}
+.image-caption{font-size:.84rem;color:#dbe8f5;margin:0;overflow-wrap:anywhere;text-align:center}
+.image-caption:empty{display:none}
+
+/* --- floating pill controls (no bar behind them) --- */
+.controls{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:10;display:flex;justify-content:center;align-items:center;gap:10px;width:auto;max-width:calc(100% - 20px);margin:0;padding:0;border:0;background:none;box-shadow:none}
+.control-btn{border:1px solid rgba(220,233,245,.5);background:rgba(34,56,88,.66);color:#f1f6fb;padding:10px 20px;border-radius:999px;min-width:0;box-shadow:0 6px 16px rgba(10,20,36,.32);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .15s ease,background .15s ease,box-shadow .15s ease}
+.control-btn:hover:not(:disabled){background:rgba(54,87,125,.88);transform:translateY(-2px);box-shadow:0 9px 20px rgba(10,20,36,.38)}
+.control-btn:active:not(:disabled){transform:translateY(0)}
+.control-btn:focus-visible{outline:3px solid #dce9f5;outline-offset:3px}
+.control-btn.primary{background:linear-gradient(135deg,#86a9d0,#5f84ae);border-color:rgba(255,255,255,.6);color:#fff}
+.control-btn.primary:hover:not(:disabled){background:linear-gradient(135deg,#94b5d9,#6b90ba)}
+.control-btn:disabled{opacity:.38;cursor:not-allowed}
+.counter{font-size:.86rem;color:#eef4fa;text-align:center;padding:7px 13px;border-radius:999px;background:rgba(34,56,88,.66);border:1px solid rgba(220,233,245,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+/* --- in-between screens: same dusk-glass look --- */
+.station-transition,.end-screen{display:none;text-align:center;color:#eef4fa;background:rgba(30,50,80,.62);border:1px solid rgba(220,233,245,.3);box-shadow:0 12px 32px rgba(12,22,38,.3);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.station-transition{padding:25px 15px;margin:20px auto 0;max-width:620px;border-radius:20px}
+.station-transition.active{display:block;animation:arrive .35s ease-out}
+.station-transition h3{font-family:Lora,Georgia,"Times New Roman",serif;font-size:1.65rem;margin:0 0 9px;color:#fff}
+.station-transition p{line-height:1.6;max-width:540px;margin:0 auto 18px}
+.end-screen{margin:26px auto 0;padding:28px 20px;max-width:720px;border-radius:22px}
+.end-screen.active{display:block;animation:arrive .35s ease-out}
+.end-screen .station-label{color:#b9d0e8}
+.end-screen h2{margin-top:0;color:#fff}
+.end-screen p{line-height:1.7}
+.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(25,39,57,.45);z-index:20;align-items:center;justify-content:center;padding:18px}
+.modal-backdrop.active{display:flex}
+.modal{width:min(100%,540px);max-height:80vh;overflow:auto;background:#fff9e9;border:1px solid #8aa5c4;border-radius:20px;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.2)}
+.modal h2{font-size:1.7rem;margin:0 0 10px}
+.modal p{white-space:pre-wrap;line-height:1.7}
+.modal .control-btn{min-width:0}
+footer{text-align:center;color:#6c85a2;font-size:.82rem;margin-top:28px}
+@media(max-width:560px){.shell{width:calc(100% - 12px);padding-top:10px;padding-bottom:90px}.topline{font-size:.8rem}.note-btn{padding:7px 10px}.intro-card{color:#20384e;padding:12px 14px}.ticket-face{padding:18px 17px}.ticket-stamp{right:17px;top:55px;width:49px;height:49px}.station-head{padding:9px 13px;margin-bottom:11px}.station-desc{font-size:.8rem}.progress{font-size:.74rem;padding:5px 9px}.memory-img{border-radius:16px;max-height:calc(100vh - 235px)}.controls{gap:7px;bottom:12px}.control-btn{padding:9px 15px}.counter{font-size:.76rem;padding:6px 10px}}
+
+@media(max-width:680px){.hero{margin:22px auto 0;text-align:center}.intro-card{color:#20384e;margin:0 0 20px auto;text-align:left}.ticket-zone{margin-top:18px}.ticket{width:min(100%,340px)}}
+.shell{position:relative;z-index:1}
+.topline{justify-content:flex-start}
+.brand{margin-right:auto}
+footer{margin-top:28px;color:#f3f8fd;text-shadow:0 1px 3px rgba(10,20,36,.95),0 0 12px rgba(10,20,36,.85)}
+.note-btn{background:rgba(34,56,88,.62);color:#f1f6fb;border-color:rgba(220,233,245,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background .15s ease,transform .15s ease}
+.note-btn:hover{background:rgba(54,87,125,.85);transform:translateY(-1px)}
+main{padding-bottom:116px}
+.control-btn,.counter{white-space:nowrap}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%92%99%3C/text%3E%3C/svg%3E"><meta name="theme-color" content="#9CEDF9"><link rel="preload" href="fonts/f-2fed3514.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/f-4da61745.woff2" as="font" type="font/woff2" crossorigin><link rel="prefetch" href="page5.html"><link rel="prefetch" href="img/page5-bb42ad4d.webp" as="image"><style id="cozy-theme">html{background-color:#614a44;background-image:url(data:image/webp;base64,UklGRrABAABXRUJQVlA4IKQBAACQCQCdASooABsAPt1ep00opSOiKqwBEBuJagCdMspuzQBnmrtAbBpp8cWg0N/5WOLv62UaiDhogz52Pt7vrN1oKOUcWlt2/7k8qQ4lopGpCInKCrEAAP7mkj1wg+d+1tPSdY76jfRzM/5zfMXNnTMvsMpXKAQZW7+8wc9k2gVl7fXQKblu4PfbwlBRVBBnU53qKw3qTRHtUXPX8FVuBUbYAK2uap+E/UHoKclG9oQ18REpYA4UdAuWa0Xg6Hxe59I7vG+kGEK2EFoPwkoJ3VAFhtCHNXmt2tP/AfH2sqbfVmJJXy1XMB1uqIdZ337KCZ7t0LpS89FQo00AHusXzu421oTfynj50//jzfH/wuOTZVKJA5qfETtd2Exytr20m3dZQ04fg1TLRURd2mc43HbXlu++oMbOLfImckkqraZRBVJF6d5rvXN4K2FzNoiQV0szZjizTNlpGQp8mRVMvun6+cUMuYFGKD0H9YUcBxNjDBxuoAtGnBLanvUJ4QtkmYtEJzor2tEDps7tjUdFtdzPWfGiUArG4JTX9Qus3Ctb2IMgMAA=);background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed}
+@font-face{font-family:"Patrick Hand";font-style:normal;font-weight:400;font-display:swap;size-adjust:108%;src:url(fonts/f-2fed3514.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/f-a8b5e205.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/f-4da61745.woff2) format("woff2")}
+
+/* ============ COZY THEME (shared by every page) ============ */
+:root{--cz-sky1:#c9f6fd;--cz-sky2:#93dff0;--cz-sky-edge:#66b8cf;--cz-sky-ink:#1c5266;
+--cz-rose1:#fffafb;--cz-rose2:#ffd9e5;--cz-rose-edge:#e9a9c0;--cz-rose-ink:#7a4259;
+--cz-sun1:#fff8cf;--cz-sun2:#ffe488;--cz-sun-edge:#e0bb4f;--cz-sun-ink:#5f4a1f}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+::selection{background:#ffd9e5;color:#4a3328}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:.3s ease both cz-fade-out}
+::view-transition-new(root){animation:.5s ease both cz-fade-in}
+@keyframes cz-fade-out{to{opacity:0}}
+@keyframes cz-fade-in{from{opacity:0}}
+@keyframes cz-rise{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes cz-pop{from{opacity:0;transform:translateY(18px) scale(.95)}}
+@keyframes cz-wiggle{0%,88%,100%{rotate:0deg}91%{rotate:-4deg}94%{rotate:3.5deg}97%{rotate:-2deg}}
+@keyframes cz-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@keyframes cz-float{0%{transform:translate3d(0,0,0) scale(.5);opacity:0}12%{opacity:var(--o)}50%{transform:translate3d(var(--dx),-48vh,0) scale(1)}88%{opacity:var(--o)}100%{transform:translate3d(calc(var(--dx) * -.6),-108vh,0) scale(.7);opacity:0}}
+h1,h2,.title{text-wrap:balance}
+p,.para,.message,.intro{text-wrap:pretty}
+
+/* ambient sparkles (decor only, never clickable) */
+.cz-sparkles{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:var(--cz-sz,1)}
+.cz-sparkles i{position:absolute;left:var(--x);bottom:-14px;width:var(--s);height:var(--s);border-radius:50%;
+background:radial-gradient(circle,rgba(var(--cz-sp,255,232,160),1) 0%,rgba(var(--cz-sp,255,232,160),.35) 55%,rgba(var(--cz-sp,255,232,160),0) 72%);
+box-shadow:0 0 10px 3px rgba(var(--cz-sp,255,232,160),.5);opacity:0;animation:cz-float var(--d) linear var(--dl) infinite;will-change:transform,opacity}
+
+/* scrollbars */
+*{scrollbar-width:thin;scrollbar-color:rgba(120,90,70,.35) transparent}
+*::-webkit-scrollbar{width:8px;height:8px}*::-webkit-scrollbar-thumb{background:rgba(120,90,70,.32);border-radius:99px}
+
+@media (prefers-reduced-motion:reduce){
+ .cz-sparkles{display:none}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+:root{--cz-sp:255,226,150;--cz-sz:0}
+{background:linear-gradient(180deg,rgba(255,253,242,.93),rgba(255,247,225,.87));border:1px solid rgba(255,255,255,.92);border-radius:28px;box-shadow:0 22px 50px rgba(72,52,38,.20),0 0 0 6px rgba(255,255,255,.20),inset 0 1px 0 #fff;-webkit-backdrop-filter:blur(12px) saturate(1.15);backdrop-filter:blur(12px) saturate(1.15)}
+#closeNote{background:linear-gradient(180deg,#c9f6fd 0%,#93dff0 100%);color:#1c5266;border:1px solid rgba(255,255,255,.88);box-shadow:0 5px 0 #66b8cf,0 12px 22px rgba(36,90,110,.22),inset 0 1px 0 rgba(255,255,255,.95);text-shadow:0 1px 0 rgba(255,255,255,.55);transition:transform .15s ease,box-shadow .15s ease,filter .15s ease}
+#closeNote:hover{transform:translateY(-2px);filter:brightness(1.03);box-shadow:0 7px 0 #66b8cf,0 16px 26px rgba(36,90,110,.26),inset 0 1px 0 rgba(255,255,255,.95)}
+#closeNote:active{transform:translateY(3px);filter:none;box-shadow:0 2px 0 #66b8cf,0 5px 10px rgba(36,90,110,.2),inset 0 1px 0 rgba(255,255,255,.95)}
+#closeNote:focus-visible{outline:3px solid rgba(255,255,255,.95);outline-offset:3px;box-shadow:0 5px 0 #66b8cf,0 0 0 6px rgba(80,150,180,.55)}
+.note-btn{background:linear-gradient(180deg,#fffafb 0%,#ffd9e5 100%);color:#7a4259;border:1px solid rgba(255,255,255,.88);box-shadow:0 5px 0 #e9a9c0,0 12px 22px rgba(120,60,85,.22),inset 0 1px 0 rgba(255,255,255,.95);text-shadow:0 1px 0 rgba(255,255,255,.55);transition:transform .15s ease,box-shadow .15s ease,filter .15s ease}
+.note-btn:hover{transform:translateY(-2px);filter:brightness(1.03);box-shadow:0 7px 0 #e9a9c0,0 16px 26px rgba(120,60,85,.26),inset 0 1px 0 rgba(255,255,255,.95)}
+.note-btn:active{transform:translateY(3px);filter:none;box-shadow:0 2px 0 #e9a9c0,0 5px 10px rgba(120,60,85,.2),inset 0 1px 0 rgba(255,255,255,.95)}
+.note-btn:focus-visible{outline:3px solid rgba(255,255,255,.95);outline-offset:3px;box-shadow:0 5px 0 #e9a9c0,0 0 0 6px rgba(80,150,180,.55)}
+.modal{background:linear-gradient(180deg,#fffdf3 0%,#fff8dd 100%);border:1px solid #ecdca8;border-radius:10px 10px 22px 10px;box-shadow:0 28px 64px rgba(40,28,24,.38),0 0 0 6px rgba(255,255,255,.18)}
+.modal::before{content:"";position:absolute;left:0;right:0;top:0;width:auto;height:10px;transform:none;border-radius:10px 10px 0 0;pointer-events:none;z-index:1;background:repeating-linear-gradient(135deg,#9CEDF9 0 12px,#FFFADA 12px 24px,#f8dce5 24px 36px)}
+.modal-backdrop.active .modal{animation:cz-pop .3s ease both}
+.modal-backdrop{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.hero{animation:cz-rise .7s ease 0.00s both}
+.ticket-zone{animation:cz-rise .7s ease 0.08s both}
+
+/* ---- intro: title + welcome text live together on one dusk-glass board ---- */
+.hero{max-width:640px;margin:clamp(28px,11vh,100px) 0 0 auto;padding:20px 22px 14px;border-radius:28px;background:rgba(26,44,74,.56);border:1px solid rgba(220,233,245,.3);box-shadow:0 18px 44px rgba(10,20,36,.35);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.intro-card{max-width:none;width:auto;margin:0;padding:4px 2px 2px;background:transparent;border:0;box-shadow:none;color:#eaf2fa;font-size:clamp(.98rem,2vw,1.08rem);line-height:1.62}
+.hint{color:#eaf2fa;text-shadow:0 1px 4px rgba(10,20,36,.85),0 0 12px rgba(10,20,36,.7)}
+@media(max-width:680px){.hero{margin:clamp(14px,5vh,40px) auto 0;padding:16px 16px 10px}}
+
+/* ---- ticket: a bit of paper charm ---- */
+.ticket-face{transform:rotate(-1.6deg);transition:transform .25s ease;background:linear-gradient(120deg,#fffaf0,#f6e6b0)}
+.ticket:hover .ticket-face{transform:rotate(0) translateY(-2px)}
+.ticket-action span:last-child{display:inline-block;animation:cz-nudge 1.8s ease-in-out infinite}
+
+/* ---- journey dots ---- */
+.station-head{flex-wrap:wrap}
+.route{flex:0 0 100%;display:flex;align-items:center;margin:0 0 9px}
+.rn{flex:0 0 auto;width:12px;height:12px;border-radius:50%;border:2px solid rgba(220,233,245,.6);background:transparent;transition:all .3s ease}
+.rn.done{background:#ffd98a;border-color:#ffd98a}
+.rn.now{background:#fff1b8;border-color:#fff1b8;transform:scale(1.2);box-shadow:0 0 0 4px rgba(255,226,150,.26),0 0 14px 3px rgba(255,226,150,.7)}
+.rl{flex:1 1 auto;height:2px;margin:0 5px;background:repeating-linear-gradient(90deg,rgba(220,233,245,.55) 0 6px,transparent 6px 11px);transition:background .3s ease}
+.rl.done{background:#ffd98a}
+
+/* ---- zoom ---- */
+.memory-card{min-height:min(52vh,440px)}
+.memory-img{cursor:zoom-in;max-height:calc(100vh - 305px);max-height:calc(100dvh - 305px)}
+.zoom-btn{min-width:0;padding:9px 13px;font-size:1rem;line-height:1}
+.lightbox{position:fixed;inset:0;z-index:30;display:none;background:rgba(12,20,34,.9);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.lightbox.open{display:block;animation:arrive .25s ease-out}
+.lb-scroll{position:absolute;inset:0;overflow:auto;display:flex;padding:60px 12px 14px}
+.lb-scroll img{flex:none;margin:auto;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.5);cursor:zoom-in}
+.lightbox.zoomed .lb-scroll img{max-width:none;max-height:none;width:max(150vw,920px);cursor:zoom-out}
+.lb-close{position:absolute;top:12px;right:14px;z-index:2;width:42px;height:42px;border-radius:50%;border:1px solid rgba(220,233,245,.5);background:rgba(34,56,88,.75);color:#f1f6fb;font-size:1.05rem;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.lb-close:hover{background:rgba(54,87,125,.95)}
+
+/* ---- music button ---- */
+.music-fab{position:fixed;top:12px;right:12px;z-index:12;width:44px;height:44px;padding:0;border-radius:50%;border:1px solid rgba(220,233,245,.5);background:rgba(34,56,88,.66);color:#f1f6fb;font-size:1.1rem;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 16px rgba(10,20,36,.32);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .15s ease,background .15s ease}
+.music-fab:hover{background:rgba(54,87,125,.9);transform:translateY(-2px)}
+.music-fab:active{transform:translateY(0)}
+.music-fab:focus-visible{outline:3px solid #dce9f5;outline-offset:3px}
+.music-fab.on{background:linear-gradient(135deg,#86a9d0,#5f84ae);border-color:rgba(255,255,255,.6);animation:cz-ring 2.6s ease-out infinite}
+@keyframes cz-ring{0%{box-shadow:0 6px 16px rgba(10,20,36,.32),0 0 0 0 rgba(255,226,150,.55)}70%,100%{box-shadow:0 6px 16px rgba(10,20,36,.32),0 0 0 14px rgba(255,226,150,0)}}
+.music-tip{position:fixed;top:64px;right:12px;z-index:12;max-width:210px;padding:7px 13px;border-radius:14px;font-size:.85rem;color:#eef4fa;background:rgba(30,50,80,.88);border:1px solid rgba(220,233,245,.3);opacity:0;transform:translateY(-4px);transition:opacity .25s ease,transform .25s ease;pointer-events:none}
+.music-tip.show{opacity:1;transform:none}
+.brand{max-width:calc(100% - 76px)}
+@media(max-width:820px){.topline{min-height:46px;align-items:center}.viewer{margin-top:66px;scroll-margin-top:64px}.station-transition{scroll-margin-top:62px}.end-screen{scroll-margin-top:62px}}
+
+/* ---- memo + footer ---- */
+.modal{position:relative;padding-top:30px}
+.note-btn{border-radius:999px}
+@media(max-width:560px){.memory-img{max-height:calc(100vh - 285px);max-height:calc(100dvh - 285px)}.zoom-btn{padding:8px 10px}.controls{gap:6px}.control-btn{padding:9px 13px}}
+
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="topline">
+    <div class="brand">PARUL DA BIRTHDAY · 2026</div>
+  </div>
+  <header class="hero" id="hero">
+    <div class="kicker">GIFT A · YOUR TICKET</div>
+    <h1>An Album Ticket</h1>
+    <div class="intro-card">
+      WELCOME, WELCOME🤗aa gye aap yaha, achaa badhiya phir. Baith jao phir ab aram se. So this is something different it holds moment. This contains the things the way i see it hehe. This is my POV🤗. aur mera ankh 6/6 hai to acha dikhta mujhe, aur tum to ho ache insan😭bherry good hooman(ye hooman wala tera hi copy karta hu mai- "chorrrrrrr" teri awaj me🤗)
+    </div>
+  </header>
+  <section class="ticket-zone" id="ticketZone">
+    <button class="ticket" id="ticketButton" type="button" aria-label="Enter my POV and reveal the first stop">
+      <div class="ticket-face">
+        <div class="ticket-top"><span>ADMIT ONE</span><span>NO. A–01</span></div>
+        <div class="ticket-title">Enter my POV</div>
+        <div class="ticket-sub">One ticket · one very specific point of view</div>
+        <div class="ticket-action"><span>Tap to begin</span><span>→</span></div>
+        <div class="ticket-stamp">VALID<br>FOR LORE</div>
+      </div>
+    </button>
+  </section>
+  <p class="hint" id="ticketHint">The stops are a surprise. Ticket first, spoilers never. 😌</p>
+
+  <main>
+    <section class="viewer" id="viewer" aria-live="polite">
+      <div class="station-head">
+        <div class="route" id="route" role="img" aria-label="Journey progress"></div>
+        <div>
+          <div class="station-label" id="stationKicker">STOP 1</div>
+          <h2 id="stationTitle">The Intro</h2>
+          <p class="station-desc" id="stationDesc"></p>
+        </div>
+        <div class="progress" id="stationProgress">Photo 1 of 5</div>
+      </div>
+      <div class="memory-card">
+        <img class="memory-img" id="memoryImage" src="" alt="A scrapbook memory from this stop">
+        <div class="image-caption" id="imageCaption"></div>
+      </div>
+      <div class="controls">
+        <button class="control-btn" id="previousButton" type="button">← Previous</button>
+        <div class="counter" id="photoCounter">1 / 5</div>
+        <button class="control-btn zoom-btn" id="zoomBtn" type="button" aria-label="Zoom photo" title="Zoom photo">🔍</button>
+        <button class="control-btn primary" id="nextButton" type="button">Next →</button>
+      </div>
+    </section>
+    <section class="station-transition" id="transition" aria-live="polite">
+      <h3 id="transitionTitle">Stop complete. 😭</h3>
+      <p id="transitionText">You made it through the stop.</p>
+      <button class="control-btn primary" id="continueButton" type="button">Reveal next stop →</button>
+    </section>
+    <section class="end-screen" id="endScreen">
+      <div class="station-label">END OF THIS JOURNEY</div>
+      <h2>Last stop. 🫂</h2>
+      <p>Thank you for coming through my POV. Some things are funny, some things stay with you.</p>
+      <button class="control-btn primary" id="finishButton" type="button">Continue journey →</button>
+    </section>
+  </main>
+  <footer>Take your time. The next stop only appears when you finish this one. 🤝<br><button class="note-btn" id="openNote" type="button" style="margin-top:14px">📝 Creator’s Note</button></footer>
+</div>
+
+<audio id="albumMusic" loop preload="none"><source src="music/page4.mp3" type="audio/mpeg"></audio>
+<button class="music-fab" id="musicFab" type="button" aria-label="Play music" aria-pressed="false" title="Play music">♫</button>
+<div class="music-tip" id="musicTip" role="status" aria-live="polite"></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo preview">
+  <button class="lb-close" id="lbClose" type="button" aria-label="Close preview">✕</button>
+  <div class="lb-scroll" id="lbScroll"><img id="lbImg" alt=""></div>
+</div>
+<div class="modal-backdrop" id="noteBackdrop" role="dialog" aria-modal="true" aria-labelledby="noteTitle">
+  <div class="modal">
+    <h2 id="noteTitle">Creator’s Note 💌</h2>
+    <p>6th of oct, 5:39Pm.
+
+Yooo YOo yo, kya hal chal bhaya, ye padh rahe ho wow , noiceee. Acha ye page bhi done ho gya mtlb good good. Bro ye page me jo sochne me majja aya haina pucho mat. Now i am at my peak creativity hehehehehehehahahah.</p>
+    <button class="control-btn primary" id="closeNote" type="button">Close note ✕</button>
+  </div>
+</div>
+
+<script>
+const records = [{"station": "The intro", "title": "The Intro", "desc": "Start here. The origin story is a little chaotic. 😭", "name": "Scrapbook Polaroid Social Post Collage.png", "rel": "album/p-1ff4545f.webp"}, {"station": "The intro", "title": "The Intro", "desc": "Start here. The origin story is a little chaotic. 😭", "name": "Pastel Scrapbook DP Rating Collage.png", "rel": "album/p-be8cefc4.webp"}, {"station": "The intro", "title": "The Intro", "desc": "Start here. The origin story is a little chaotic. 😭", "name": "Two-Day Reply Scrapbook Collage.png", "rel": "album/p-f55373a6.webp"}, {"station": "The intro", "title": "The Intro", "desc": "Start here. The origin story is a little chaotic. 😭", "name": "Strong Girl Gym Scrapbook.png", "rel": "album/p-427217ac.webp"}, {"station": "The intro", "title": "The Intro", "desc": "Start here. The origin story is a little chaotic. 😭", "name": "All-Purpose Sticker Scrapbook Collage.png", "rel": "album/p-f66ae5a7.webp"}, {"station": "Summer", "title": "Summer", "desc": "Summer archives: questionable context, excellent evidence.", "name": "Pastel Nail Art Scrapbook Collage.png", "rel": "album/p-5ed8b095.webp"}, {"station": "Summer", "title": "Summer", "desc": "Summer archives: questionable context, excellent evidence.", "name": "Cute Dieting Chat Scrapbook.png", "rel": "album/p-5f8c3092.webp"}, {"station": "Summer", "title": "Summer", "desc": "Summer archives: questionable context, excellent evidence.", "name": "Pastel Scrapbook Chat Celebration.png", "rel": "album/p-6cab1e66.webp"}, {"station": "Ascharyachakit", "title": "Ascharyachakit", "desc": "A collection of moments that made me go: bhaiiii 😭", "name": "Birthday Girl’s Happy Scrapbook Moment.png", "rel": "album/p-14b67297.webp"}, {"station": "Ascharyachakit", "title": "Ascharyachakit", "desc": "A collection of moments that made me go: bhaiiii 😭", "name": "Cozy Pastel Music Scrapbook.png", "rel": "album/p-00058e67.webp"}, {"station": "Ascharyachakit", "title": "Ascharyachakit", "desc": "A collection of moments that made me go: bhaiiii 😭", "name": "Sweet Pretty Selfie Collage.png", "rel": "album/p-9f4c3118.webp"}, {"station": "Ascharyachakit", "title": "Ascharyachakit", "desc": "A collection of moments that made me go: bhaiiii 😭", "name": "Kawaii Maldives Travel Chat Collage.png", "rel": "album/p-c76ac0fa.webp"}, {"station": "protest", "title": "Protest", "desc": "Raise your placards. The chants are very specific.", "name": "Rebellious Baddie Protest Scrapbook.png", "rel": "album/p-8fb5c30f.webp"}, {"station": "protest", "title": "Protest", "desc": "Raise your placards. The chants are very specific.", "name": "Certified Cutu Fan Rally Collage.png", "rel": "album/p-a34132a7.webp"}, {"station": "protest", "title": "Protest", "desc": "Raise your placards. The chants are very specific.", "name": "Long Hair Supremacy Scrapbook Fan Edit.png", "rel": "album/p-a86ac397.webp"}, {"station": "protest", "title": "Protest", "desc": "Raise your placards. The chants are very specific.", "name": "Orange Reward Scrapbook Collage.png", "rel": "album/p-2757aa64.webp"}, {"station": "The meaning", "title": "The Meaning", "desc": "One little thing that stayed with me. 🫂", "name": "Scrapbook Memories and Mother’s Cooking.png", "rel": "album/p-08e1a528.webp"}];
+const stations = [
+  {key:"The intro",title:"The Intro",desc:"The origin story is a little chaotic. 😭"},
+  {key:"Summer",title:"Summer",desc:"Summer archives: questionable context, excellent evidence."},
+  {key:"Ascharyachakit",title:"Ascharyachakit",desc:"A collection of moments that made me go: bhaiiii 😭"},
+  {key:"protest",title:"Protest",desc:"Raise your placards. The chants are very specific."},
+  {key:"The meaning",title:"The Meaning",desc:"One little thing that stayed with me. 🫂"}
+];
+const grouped = stations.map(s => ({...s, photos: records.filter(r => r.station === s.key)}));
+let stationIndex = -1, photoIndex = 0;
+const $ = id => document.getElementById(id);
+const viewer = $("viewer"), transition = $("transition"), endScreen = $("endScreen");
+function showPhoto(){
+  const s = grouped[stationIndex], r = s.photos[photoIndex];
+  $("stationKicker").textContent = `STOP ${stationIndex+1} · ${s.photos.length} ${s.photos.length===1?"PHOTO":"PHOTOS"}`;
+  $("stationTitle").textContent = s.title;
+  $("stationDesc").textContent = s.desc;
+  $("stationProgress").textContent = `Photo ${photoIndex+1} of ${s.photos.length}`;
+  $("photoCounter").textContent = `${photoIndex+1} / ${s.photos.length}`;
+  $("memoryImage").src = r.rel;
+  $("memoryImage").classList.remove("pop"); void $("memoryImage").offsetWidth; $("memoryImage").classList.add("pop");
+  $("memoryImage").alt = `${s.title} scrapbook image ${photoIndex+1}: ${r.name}`;
+  $("imageCaption").textContent = "";
+  $("previousButton").disabled = photoIndex===0;
+  $("nextButton").textContent = photoIndex===s.photos.length-1 ? "Finish stop ✓" : "Next →";
+  viewer.classList.add("active"); transition.classList.remove("active"); endScreen.classList.remove("active");
+  if(window.czRoute)czRoute();
+}
+function startStation(i){
+  stationIndex=i; photoIndex=0;
+  $("hero").style.display="none";
+  $("ticketZone").style.display="none";
+  $("ticketHint").style.display="none";
+  showPhoto();
+  viewer.scrollIntoView({behavior:"smooth",block:"start"});
+}
+$("ticketButton").addEventListener("click",()=>startStation(0));
+$("previousButton").addEventListener("click",()=>{if(photoIndex>0){photoIndex--;showPhoto();}});
+$("nextButton").addEventListener("click",()=>{
+  const s=grouped[stationIndex];
+  if(photoIndex<s.photos.length-1){photoIndex++;showPhoto();return;}
+  viewer.classList.remove("active");
+  if(stationIndex===grouped.length-1){
+    endScreen.classList.add("active");
+    endScreen.scrollIntoView({behavior:"smooth",block:"center"});
+    return;
+  }
+  $("transitionTitle").textContent=`${s.title} complete. 😭`;
+  $("transitionText").textContent=`You finished all ${s.photos.length} ${s.photos.length===1?"photo":"photos"} in this stop. Ready for the next one?`;
+  $("continueButton").textContent=`Reveal Stop ${stationIndex+2} →`;
+  transition.classList.add("active");
+  transition.scrollIntoView({behavior:"smooth",block:"center"});
+});
+$("continueButton").addEventListener("click",()=>startStation(stationIndex+1));
+$("finishButton").addEventListener("click",()=>{window.location.href="page5.html";});
+$("openNote").addEventListener("click",()=>$("noteBackdrop").classList.add("active"));
+$("closeNote").addEventListener("click",()=>$("noteBackdrop").classList.remove("active"));
+$("noteBackdrop").addEventListener("click",e=>{if(e.target===$("noteBackdrop"))$("noteBackdrop").classList.remove("active");});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")$("noteBackdrop").classList.remove("active");});
+</script>
+<div class="cz-sparkles" aria-hidden="true"><i style="--x:76.2%;--s:5.9px;--d:24.8s;--dl:-10.0s;--dx:-69px;--o:0.82"></i><i style="--x:35.2%;--s:6.7px;--d:22.2s;--dl:-15.7s;--dx:20px;--o:0.72"></i><i style="--x:70.3%;--s:7.3px;--d:18.7s;--dl:-6.8s;--dx:30px;--o:0.49"></i><i style="--x:6.0%;--s:3.7px;--d:23.0s;--dl:-3.3s;--dx:-37px;--o:0.47"></i><i style="--x:82.2%;--s:3.4px;--d:19.7s;--dl:-6.1s;--dx:24px;--o:0.39"></i><i style="--x:44.0%;--s:6.1px;--d:24.0s;--dl:-4.3s;--dx:48px;--o:0.84"></i><i style="--x:3.8%;--s:6.4px;--d:22.3s;--dl:-12.8s;--dx:-28px;--o:0.53"></i><i style="--x:62.1%;--s:7.1px;--d:15.1s;--dl:-10.4s;--dx:-38px;--o:0.61"></i><i style="--x:44.4%;--s:7.1px;--d:20.8s;--dl:-3.1s;--dx:-26px;--o:0.54"></i><i style="--x:27.8%;--s:3.2px;--d:21.8s;--dl:-16.4s;--dx:-48px;--o:0.78"></i><i style="--x:96.4%;--s:3.4px;--d:19.6s;--dl:-9.2s;--dx:60px;--o:0.40"></i><i style="--x:82.2%;--s:7.0px;--d:23.6s;--dl:-11.5s;--dx:-34px;--o:0.36"></i><i style="--x:16.9%;--s:5.6px;--d:25.4s;--dl:-0.2s;--dx:-62px;--o:0.47"></i><i style="--x:95.8%;--s:5.4px;--d:24.9s;--dl:-9.4s;--dx:-23px;--o:0.54"></i><i style="--x:40.4%;--s:7.3px;--d:15.4s;--dl:-10.0s;--dx:41px;--o:0.52"></i><i style="--x:73.2%;--s:5.1px;--d:20.8s;--dl:-15.7s;--dx:35px;--o:0.58"></i></div>
+<script>
+(function(){
+  /* journey dots */
+  const route=document.getElementById('route');
+  window.czRoute=function(){
+    if(!route.children.length){
+      grouped.forEach(function(g,i){
+        if(i>0){const l=document.createElement('span');l.className='rl';route.appendChild(l);}
+        const n=document.createElement('span');n.className='rn';route.appendChild(n);
+      });
+    }
+    route.querySelectorAll('.rn').forEach(function(n,i){n.className='rn '+(i<stationIndex?'done':(i===stationIndex?'now':'todo'));});
+    route.querySelectorAll('.rl').forEach(function(l,i){l.className='rl '+(i<stationIndex?'done':'todo');});
+    route.setAttribute('aria-label','Stop '+(stationIndex+1)+' of '+grouped.length);
+    /* quietly fetch the next couple of photos so Next feels instant */
+    const flat=grouped.reduce(function(a,g){return a.concat(g.photos);},[]);
+    const cur=flat.indexOf(grouped[stationIndex].photos[photoIndex]);
+    for(let k=cur+1;k<=cur+2&&k<flat.length;k++) czWarm(flat[k].rel);
+  };
+  const warmed={};
+  function czWarm(src){ if(!src||warmed[src]) return; warmed[src]=1; const im=new Image(); im.decoding='async'; im.src=src; }
+  /* once the page is idle, fetch the whole first stop in the background */
+  window.addEventListener('load',function(){ setTimeout(function(){ grouped[0].photos.forEach(function(p){czWarm(p.rel);}); },600); });
+
+  /* background music: play / pause with a soft fade */
+  (function(){
+    const audio=document.getElementById('albumMusic'), btn=document.getElementById('musicFab'), tip=document.getElementById('musicTip');
+    const TARGET=0.7; let on=false, fade=null, tipT=null;
+    function ramp(to,ms,done){
+      clearInterval(fade); const from=audio.volume, t0=performance.now();
+      fade=setInterval(function(){ const k=Math.min(1,(performance.now()-t0)/ms); audio.volume=Math.max(0,Math.min(1,from+(to-from)*k)); if(k>=1){ clearInterval(fade); if(done) done(); } },40);
+    }
+    function say(msg){ tip.textContent=msg; tip.classList.add('show'); clearTimeout(tipT); tipT=setTimeout(function(){ tip.classList.remove('show'); },2600); }
+    function ui(state){ btn.classList.toggle('on',state); btn.textContent=state?'\u275a\u275a':'\u266b'; btn.setAttribute('aria-pressed',String(state)); const l=state?'Pause music':'Play music'; btn.setAttribute('aria-label',l); btn.title=l; }
+    let broken=false;
+    function fail(){ broken=true; on=false; ui(false); clearInterval(fade); console.warn('Could not play music/page4.mp3 - is the song inside the music folder?'); say('No song added yet \u266b'); }
+    audio.querySelector('source').addEventListener('error',fail);
+    audio.addEventListener('error',fail);
+    btn.addEventListener('click',async function(){
+      if(broken){ say('No song added yet \u266b'); return; }
+      if(!on){
+        try{ audio.volume=0; await audio.play(); on=true; ui(true); ramp(TARGET,1200); }
+        catch(err){ on=false; ui(false); console.warn('Could not play music/page4.mp3 - is the song inside the music folder?',err); say('No song added yet \u266b'); }
+      }else{
+        on=false; ui(false); ramp(0,500,function(){ audio.pause(); });
+      }
+    });
+  })();
+
+  /* photo zoom (lightbox) */
+  const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg'), lbScroll=document.getElementById('lbScroll');
+  const mem=document.getElementById('memoryImage');
+  let lastFocus=null;
+  function syncLb(){ if(lb.classList.contains('open')){ lbImg.src=mem.src; lbImg.alt=mem.alt; lb.classList.remove('zoomed'); lbScroll.scrollTo(0,0);} }
+  function openLb(){
+    if(!mem.getAttribute('src')) return;
+    lbImg.src=mem.src; lbImg.alt=mem.alt; lb.classList.remove('zoomed'); lb.classList.add('open');
+    lastFocus=document.activeElement; document.getElementById('lbClose').focus(); document.body.style.overflow='hidden';
+  }
+  function closeLb(){
+    lb.classList.remove('open','zoomed'); document.body.style.overflow='';
+    if(lastFocus&&lastFocus.focus) lastFocus.focus();
+  }
+  mem.addEventListener('click',openLb);
+  document.getElementById('zoomBtn').addEventListener('click',openLb);
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  lbImg.addEventListener('click',function(){ lb.classList.toggle('zoomed'); });
+  lb.addEventListener('click',function(e){ if(e.target===lb||e.target===lbScroll) closeLb(); });
+
+  /* previous / next without finishing a stop by accident */
+  function go(dir){
+    if(!viewer.classList.contains('active')) return;
+    const last=grouped[stationIndex].photos.length-1;
+    if(dir<0 && photoIndex>0){ document.getElementById('previousButton').click(); syncLb(); }
+    else if(dir>0 && photoIndex<last){ document.getElementById('nextButton').click(); syncLb(); }
+  }
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape' && lb.classList.contains('open')){ closeLb(); return; }
+    if(document.getElementById('noteBackdrop').classList.contains('active')) return;
+    if(e.key==='ArrowLeft') go(-1); else if(e.key==='ArrowRight') go(1);
+  });
+
+  /* swipe on the photo (and inside the preview when not zoomed) */
+  function swipe(el, allow){
+    let sx=0, sy=0, t0=0;
+    el.addEventListener('touchstart',function(e){ const t=e.changedTouches[0]; sx=t.clientX; sy=t.clientY; t0=Date.now(); },{passive:true});
+    el.addEventListener('touchend',function(e){
+      if(allow && !allow()) return;
+      const t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+      if(Date.now()-t0>800 || Math.abs(dx)<50 || Math.abs(dx)<Math.abs(dy)*1.5) return;
+      go(dx<0?1:-1);
+    },{passive:true});
+  }
+  swipe(document.querySelector('.memory-card'));
+  swipe(lb, function(){ return !lb.classList.contains('zoomed'); });
+})();
+</script>
+
+</body>
+</html>

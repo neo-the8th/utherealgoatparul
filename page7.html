@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gift L — The Last Page</title>
+<style>
+:root{--sky:#9CEDF9;--cream:#FFFADA;--pink:#f8dce5;--ink:#354a55;--blue:#4d8794}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;color:var(--ink)}body{font-family:"Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;background:var(--cream)}
+.scene{min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;padding:clamp(20px,5vw,70px);background-image:linear-gradient(90deg,rgba(255,250,218,.02) 0%,rgba(255,250,218,.06) 42%,rgba(255,250,218,.65) 63%,rgba(255,250,218,.82) 100%),url('img/page7-22ed3111.webp');background-size:cover;background-position:center;background-repeat:no-repeat;overflow:hidden}
+.panel{width:min(43%,540px);margin-right:1%;padding:clamp(20px,3.2vw,38px);border:1px solid rgba(110,145,147,.34);border-radius:24px;background:rgba(255,250,218,.88);box-shadow:0 12px 34px rgba(65,83,78,.12);backdrop-filter:blur(4px);text-align:center}
+.eyebrow{font:italic 15px Lora,Georgia,serif;letter-spacing:.12em;color:#688d91;margin:0 0 8px}.title{font:clamp(34px,4.3vw,54px) Lora,Georgia,serif;color:#4b7c87;margin:0 0 20px;font-weight:normal}.para{font-size:clamp(16px,1.35vw,19px);line-height:1.85;margin:0 auto;max-width:39em;text-align:center}.note-button{position:fixed;right:22px;bottom:20px;border:1px solid #9bcbd0;border-radius:999px;padding:12px 17px;background:rgba(255,250,218,.95);color:#426e78;font:16px "Patrick Hand","Comic Sans MS","Trebuchet MS",cursive;box-shadow:0 5px 18px #4d687522;cursor:pointer}.note-button:hover{transform:translateY(-2px);background:#fffdf0}.shade{position:fixed;inset:0;background:rgba(34,48,53,.32);display:none;align-items:center;justify-content:center;padding:20px;z-index:5}.shade.open{display:flex}.memo{width:min(520px,100%);max-height:min(76svh,650px);overflow:auto;background:#fff9df;border:1px solid #e7dba7;border-radius:8px 8px 16px 8px;padding:24px 25px 26px;box-shadow:0 20px 60px #172c3540;position:relative;transform:rotate(-.5deg)}.memo:before{content:"";position:absolute;left:0;right:0;top:0;height:9px;background:repeating-linear-gradient(135deg,#9CEDF9 0 12px,#FFFADA 12px 24px,#f8dce5 24px 36px)}.memo h2{font:normal 25px Lora,Georgia,serif;color:#547e87;margin:12px 0 18px}.memo p{white-space:pre-wrap;line-height:1.8;font-size:16px;margin:0}.close{position:sticky;float:right;top:0;border:0;border-radius:50%;width:34px;height:34px;background:#dff5f5;color:#385e68;font-size:21px;cursor:pointer}.hint{margin-top:22px;font:italic 13px Lora,Georgia,serif;color:#76969a}
+@media(max-width:760px){.scene{align-items:flex-end;justify-content:center;padding:18px 14px 86px;background-position:34% center;background-image:linear-gradient(0deg,rgba(255,250,218,.95) 0%,rgba(255,250,218,.87) 39%,rgba(255,250,218,.05) 75%),url('img/page7-22ed3111.webp')}.panel{width:min(100%,540px);margin:0 auto;padding:22px 20px;border-radius:20px;text-align:center}.title{margin-bottom:13px}.para{font-size:16px;line-height:1.7;max-width:44ch;margin:22px auto;text-align:center}.note-button{right:14px;bottom:12px}}
+@media(min-width:761px) and (max-width:1050px){.panel{width:min(58%,540px);margin:0 auto}.scene{background-position:center center}}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%92%99%3C/text%3E%3C/svg%3E"><meta name="theme-color" content="#9CEDF9"><link rel="preload" href="fonts/f-2fed3514.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/f-4da61745.woff2" as="font" type="font/woff2" crossorigin><style id="cozy-theme">html{background-color:#b68055;background-image:url(data:image/webp;base64,UklGRkwBAABXRUJQVlA4IEABAAAwCACdASooABcAPt1oqlCopiOiqrgIARAbiWIAuzObgZZ5maUX9KAbX8JqwW2f+10wNzLLzpRUo/4iElwH/iXfSNBJxUc6YuL6AAD+5nYghxkjouXgsGmbDkonMnja4RYEl1jvGZIhBCgzZ89DwG2OStclO9Ql+oaH79CbqVE8lpR96WsF6bpXFjajORgvAJXUDpMA1GRFF2qtqZzEhF8RtzkD+LYF0U1KyBtjS/xbqQjryCU4glnQ18WYHOlIV332bMnrK2sIcoXG1myH8rA2iQPB9qIP1WyL6vqTv2EkPLbg5I487ieVCzvjBTU5gjDrScrS1owTz42im/HK2+KjsRULRiqyEOOeAIqasVxEWEnA6ciyRkIWEpnMtBZJmGr0J4GqMfIeQZYkNuaen2H03iW/BNc5TNzvB5dL8tQAAA==);background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed}
+@font-face{font-family:"Patrick Hand";font-style:normal;font-weight:400;font-display:swap;size-adjust:108%;src:url(fonts/f-2fed3514.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/f-a8b5e205.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/f-4da61745.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/f-0b843937.woff2) format("woff2")}
+
+/* ============ COZY THEME (shared by every page) ============ */
+:root{--cz-sky1:#c9f6fd;--cz-sky2:#93dff0;--cz-sky-edge:#66b8cf;--cz-sky-ink:#1c5266;
+--cz-rose1:#fffafb;--cz-rose2:#ffd9e5;--cz-rose-edge:#e9a9c0;--cz-rose-ink:#7a4259;
+--cz-sun1:#fff8cf;--cz-sun2:#ffe488;--cz-sun-edge:#e0bb4f;--cz-sun-ink:#5f4a1f}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+::selection{background:#ffd9e5;color:#4a3328}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:.3s ease both cz-fade-out}
+::view-transition-new(root){animation:.5s ease both cz-fade-in}
+@keyframes cz-fade-out{to{opacity:0}}
+@keyframes cz-fade-in{from{opacity:0}}
+@keyframes cz-rise{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes cz-pop{from{opacity:0;transform:translateY(18px) scale(.95)}}
+@keyframes cz-wiggle{0%,88%,100%{rotate:0deg}91%{rotate:-4deg}94%{rotate:3.5deg}97%{rotate:-2deg}}
+@keyframes cz-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@keyframes cz-float{0%{transform:translate3d(0,0,0) scale(.5);opacity:0}12%{opacity:var(--o)}50%{transform:translate3d(var(--dx),-48vh,0) scale(1)}88%{opacity:var(--o)}100%{transform:translate3d(calc(var(--dx) * -.6),-108vh,0) scale(.7);opacity:0}}
+h1,h2,.title{text-wrap:balance}
+p,.para,.message,.intro{text-wrap:pretty}
+
+/* ambient sparkles (decor only, never clickable) */
+.cz-sparkles{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:var(--cz-sz,1)}
+.cz-sparkles i{position:absolute;left:var(--x);bottom:-14px;width:var(--s);height:var(--s);border-radius:50%;
+background:radial-gradient(circle,rgba(var(--cz-sp,255,232,160),1) 0%,rgba(var(--cz-sp,255,232,160),.35) 55%,rgba(var(--cz-sp,255,232,160),0) 72%);
+box-shadow:0 0 10px 3px rgba(var(--cz-sp,255,232,160),.5);opacity:0;animation:cz-float var(--d) linear var(--dl) infinite;will-change:transform,opacity}
+
+/* scrollbars */
+*{scrollbar-width:thin;scrollbar-color:rgba(120,90,70,.35) transparent}
+*::-webkit-scrollbar{width:8px;height:8px}*::-webkit-scrollbar-thumb{background:rgba(120,90,70,.32);border-radius:99px}
+
+@media (prefers-reduced-motion:reduce){
+ .cz-sparkles{display:none}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+:root{--cz-sp:255,236,190;--cz-sz:1}
+.panel{background:linear-gradient(180deg,rgba(255,253,242,.93),rgba(255,247,225,.87));border:1px solid rgba(255,255,255,.92);border-radius:28px;box-shadow:0 22px 50px rgba(72,52,38,.20),0 0 0 6px rgba(255,255,255,.20),inset 0 1px 0 #fff;-webkit-backdrop-filter:blur(12px) saturate(1.15);backdrop-filter:blur(12px) saturate(1.15)}
+.panel{position:relative}
+.panel::before{content:"";position:absolute;top:-13px;left:50%;width:112px;height:28px;transform:translateX(-50%) rotate(-2deg);border-radius:3px;pointer-events:none;z-index:3;background:repeating-linear-gradient(135deg,rgba(156,237,249,.82) 0 10px,rgba(255,250,218,.85) 10px 20px,rgba(248,220,229,.85) 20px 30px);box-shadow:0 2px 6px rgba(60,40,30,.16)}
+.note-button{background:linear-gradient(180deg,#fffafb 0%,#ffd9e5 100%);color:#7a4259;border:1px solid rgba(255,255,255,.88);box-shadow:0 5px 0 #e9a9c0,0 12px 22px rgba(120,60,85,.22),inset 0 1px 0 rgba(255,255,255,.95);text-shadow:0 1px 0 rgba(255,255,255,.55);transition:transform .15s ease,box-shadow .15s ease,filter .15s ease}
+.note-button:hover{transform:translateY(-2px);filter:brightness(1.03);box-shadow:0 7px 0 #e9a9c0,0 16px 26px rgba(120,60,85,.26),inset 0 1px 0 rgba(255,255,255,.95)}
+.note-button:active{transform:translateY(3px);filter:none;box-shadow:0 2px 0 #e9a9c0,0 5px 10px rgba(120,60,85,.2),inset 0 1px 0 rgba(255,255,255,.95)}
+.note-button:focus-visible{outline:3px solid rgba(255,255,255,.95);outline-offset:3px;box-shadow:0 5px 0 #e9a9c0,0 0 0 6px rgba(80,150,180,.55)}
+.note-button{animation:cz-wiggle 8s ease-in-out 4s infinite}
+.note-button:hover{animation-play-state:paused}
+.memo{background:linear-gradient(180deg,#fffdf3 0%,#fff8dd 100%);border:1px solid #ecdca8;border-radius:10px 10px 22px 10px;box-shadow:0 28px 64px rgba(40,28,24,.38),0 0 0 6px rgba(255,255,255,.18)}
+.memo::before{content:"";position:absolute;left:0;right:0;top:0;width:auto;height:10px;transform:none;border-radius:10px 10px 0 0;pointer-events:none;z-index:1;background:repeating-linear-gradient(135deg,#9CEDF9 0 12px,#FFFADA 12px 24px,#f8dce5 24px 36px)}
+.shade.open .memo{animation:cz-pop .3s ease both}
+.shade{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.panel{animation:cz-rise .7s ease 0.00s both}
+
+.panel{position:relative;z-index:2}
+.title{text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.hint{color:#5f8286}
+.close{background:linear-gradient(180deg,#fffafb,#ffd9e5)!important;color:#7a4259!important;box-shadow:0 3px 0 #e9a9c0}
+.memo h2{margin-top:14px}
+
+</style>
+</head>
+<body>
+<main class="scene" aria-label="Cozy kitchen on 28 August 2026, with Parul and her big brother cooking together">
+<section class="panel">
+<p class="eyebrow">THE LAST CHAPTER · GIFT L</p>
+<h1 class="title">And finally… L 💌</h1>
+<p class="para">Hey so you are finally here🤗. So this is the last part of the whole thing. Don't gonna yap too much here cz there is alreadly something u have to read now. Agar sabkuch sahi se kam kar gya hoga tab to wo tumhare pas deliver ho gya hoga. hehe😁(Agar nhi to maine e-version bhi drive me dal diya hai😭😭waha se padh liyo)</p>
+<p class="hint">No more surprises. Just one last thing to read. 💙</p>
+</section>
+</main>
+<button class="note-button" id="openNote" aria-haspopup="dialog" aria-controls="creatorNote">✎ Creator’s Note</button>
+<div class="shade" id="shade" role="presentation">
+<section class="memo" id="creatorNote" role="dialog" aria-modal="true" aria-labelledby="memoTitle">
+<button class="close" id="closeNote" aria-label="Close note">×</button>
+<h2 id="memoTitle">A note from the creator</h2>
+<p>10th of oct, 2:45am
+
+So So So finally complete kar hi liya maine😭. now looking back when i started it on oct 1st, i thought ki ek do din me khatm ho jayega. But i am so happy cz i did not give up.😭😤Bola tha na a baddie never looses.🙂‍↕️</p>
+</section>
+</div>
+<script>
+const shade=document.getElementById('shade'),openBtn=document.getElementById('openNote'),closeBtn=document.getElementById('closeNote');
+function openNote(){shade.classList.add('open');closeBtn.focus()}function closeNote(){shade.classList.remove('open');openBtn.focus()}
+openBtn.addEventListener('click',openNote);closeBtn.addEventListener('click',closeNote);shade.addEventListener('click',e=>{if(e.target===shade)closeNote()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&shade.classList.contains('open'))closeNote()});
+</script>
+<div class="cz-sparkles" aria-hidden="true"><i style="--x:77.7%;--s:7.5px;--d:20.6s;--dl:-3.1s;--dx:-63px;--o:0.68"></i><i style="--x:90.4%;--s:3.0px;--d:18.6s;--dl:-6.4s;--dx:46px;--o:0.69"></i><i style="--x:73.4%;--s:5.7px;--d:26.2s;--dl:-1.0s;--dx:16px;--o:0.70"></i><i style="--x:53.6%;--s:3.6px;--d:25.3s;--dl:-23.6s;--dx:-51px;--o:0.56"></i><i style="--x:75.2%;--s:5.0px;--d:17.0s;--dl:-4.0s;--dx:-41px;--o:0.43"></i><i style="--x:40.2%;--s:5.7px;--d:24.9s;--dl:-5.7s;--dx:51px;--o:0.66"></i><i style="--x:30.5%;--s:4.8px;--d:22.1s;--dl:-15.4s;--dx:-65px;--o:0.61"></i><i style="--x:88.1%;--s:3.3px;--d:19.3s;--dl:-18.3s;--dx:26px;--o:0.59"></i><i style="--x:72.0%;--s:3.2px;--d:15.1s;--dl:-11.3s;--dx:-39px;--o:0.66"></i><i style="--x:32.2%;--s:7.4px;--d:17.0s;--dl:-2.9s;--dx:-58px;--o:0.70"></i><i style="--x:42.2%;--s:4.8px;--d:25.9s;--dl:-8.0s;--dx:-40px;--o:0.37"></i><i style="--x:33.4%;--s:3.3px;--d:15.2s;--dl:-1.9s;--dx:-44px;--o:0.61"></i></div>
+</body></html>
